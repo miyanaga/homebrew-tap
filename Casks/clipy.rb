@@ -18,8 +18,9 @@ cask "clipy" do
   app "Clipy.app"
 
   caveats <<~EOS
-    This build is not notarized yet. Install with:
-      brew install --cask --no-quarantine miyanaga/tap/clipy
-    or set HOMEBREW_CASK_OPTS="--no-quarantine".
+    This build is not notarized, and current Homebrew no longer supports
+    --no-quarantine. After each install or upgrade, clear the quarantine
+    attribute before launching:
+      /usr/bin/xattr -dr com.apple.quarantine /Applications/Clipy.app
   EOS
 end
